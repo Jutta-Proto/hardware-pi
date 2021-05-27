@@ -16,7 +16,16 @@ This reader sends the card IDs it reads as keyboard input to the Raspberry Pi (1
 
 ## Hardware
 In this section we have a look at the hardware required for this.
+I used the following hardware for this project:
+* [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+* [SanDisk Extreme PRO R100/W90 microSDHC 32GB Kit, UHS-I U3, A1, Class 10 (SDSQXCG-032G-GN6MA)](https://geizhals.de/sandisk-extreme-pro-r100-w90-microsdhc-32gb-kit-sdsqxcg-032g-gn6ma-a1620851.html) - you need a fast one in case you want to debug on you Pi :)
+* [Raspberry Pi Touch Display](https://www.raspberrypi.org/products/raspberry-pi-touch-display/)
+* [NFC-Reader](https://www.amazon.de/gp/product/B07J2KWHKL/ref=ppx_yo_dt_b_asin_title_o06_s00?ie=UTF8&psc=1) - you can use anyone that sends the read card ID as follows "0123456789\n" as keyboard input
+* [4-channel I2C-safe Bi-directional Logic Level Converter - BSS138](https://www.adafruit.com/product/757) - to covert the 5V signals from the coffee maker to 3.3V signals for the Pi
+* Jumper cables for connecting everything up.
 
+## 3D Printed Case
+In the [3D-printer](3D-printer/README.cd) directory you can find more information about how to print a case for the Raspberry Pi, its display and attache it to the coffee maker.
 
 ## Software
 In this section we have a look at the software required for this.
@@ -26,3 +35,6 @@ You need an up to date copy of [Raspberry Pi OS](https://www.raspberrypi.org/sof
 
 ### UI
 For the UI we use the [gtk-ui](https://github.com/Jutta-Proto/gtk-ui). Head over there and have a look at the dependencies there.
+
+## Connecting a Coffee Maker
+TODO
