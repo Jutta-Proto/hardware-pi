@@ -25,7 +25,7 @@ I used the following hardware for this project:
 * Jumper cables for connecting everything up.
 
 ## 3D Printed Case
-In the [3D-printer](3D-printer/README.cd) directory you can find more information about how to print a case for the Raspberry Pi, its display and attache it to the coffee maker.
+In the [3D-printer](3D-printer/README.md) directory you can find more information about how to print a case for the Raspberry Pi, its display and attache it to the coffee maker.
 
 ## Software
 In this section we have a look at the software required for this.
