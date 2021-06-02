@@ -37,4 +37,7 @@ You need an up to date copy of [Raspberry Pi OS](https://www.raspberrypi.org/sof
 For the UI we use the [gtk-ui](https://github.com/Jutta-Proto/gtk-ui). Head over there and have a look at the dependencies there.
 
 ## Connecting a Coffee Maker
-TODO
+The following image shows how to connect the Rapsberry Pi with an JURA E6 coffee maker.
+![Pinout_Raspberry_Pi](https://user-images.githubusercontent.com/11741404/120469237-631e9900-c3a2-11eb-9f2e-731905ed8138.png)
+Since the Raspberry Pi can only handle 3.3V UART signals, we need a "Logic Level Shifter" in between the coffee maker and the Raspberry Pi.
+
