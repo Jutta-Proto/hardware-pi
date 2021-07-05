@@ -58,7 +58,7 @@ Once the installation was successful, you can test it with:
 clang++ --version
 ```
 
-#### Enable UART
+#### Enabling UART
 To the enable UART (serial communication) on the Raspberry Pi, perform the following steps:
 * `sudo raspi-config`
 * Select `Interface Options`
@@ -81,7 +81,7 @@ sudo reboot -h now
 ### Other Requirements
 There are a few shared requirements needed by all projects.
 ```bash
-sudo apt install -y cmake make ninja python3 python3-pip
+sudo apt install -y git cmake make ninja python3 python3-pip
 pip3 install --user conan
 ```
 
