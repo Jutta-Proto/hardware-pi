@@ -36,8 +36,56 @@ You need an up to date copy of [Raspberry Pi OS](https://www.raspberrypi.org/sof
 ### UI
 For the UI we use the [gtk-ui](https://github.com/Jutta-Proto/gtk-ui). Head over there and have a look at the dependencies there.
 
+### Installing
+Here we have a look at what needs to be done when setting up a up to date copy of [Raspberry Pi OS](https://www.raspberrypi.org/software/) to work with this project.
+
+#### Installing Clang
+Since the out of the box available C++ compilers for the Raspberry Pi a bit to old and therefore unable to compile C++20 code, we are installing our own, up to date compiler. We decided to use [Clang](https://clang.llvm.org/) instead of [gcc](https://gcc.gnu.org/), since it's easier to set up on a Raspberry Pi. 
+```bash
+sudo apt remove -y gcc clang # Remove all old compilers
+wget https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.0/clang+llvm-12.0.0-armv7a-linux-gnueabihf.tar.xz
+tar -xvf clang+llvm-12.0.0-armv7a-linux-gnueabihf.tar.xz
+rm clang+llvm-12.0.0-armv7a-linux-gnueabihf.tar.xz
+mv clang+llvm-12.0.0-armv7a-linux-gnueabihf clang_12.0.0
+sudo mv clang_12.0.0 /usr/local
+echo 'export PATH=/usr/local/clang_12.0.0/bin:$PATH' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/clang_12.0.0/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+. ~/.bashrc
+```
+
+Once the installation was successful, you can test it with:
+```bash
+clang++ --version
+```
+
+#### Enable UART
+To the enable UART (serial communication) on the Raspberry Pi, perform the following steps:
+* `sudo raspi-config`
+* Select `Interface Options`
+* Select `Serial Port`
+* Select `No` to prevent the Pi from using the serial port for the login shell.
+* Select `Yes` to enable the serial port hardware.
+* Select `OK`
+* Select `Finish`
+* Select `No` in case it asks you if you want to reboot now.
+
+Now we add our self to the `dialout` group, so we do not need sudo to access the serial port.
+```bash
+sudo usermod -a -G dialout pi
+```
+And finally reboot.
+```bash
+sudo reboot -h now
+```
+
+### Other Requirements
+There are a few shared requirements needed by all projects.
+```bash
+sudo apt install -y cmake make ninja python3 python3-pip
+pip3 install --user conan
+```
+
 ## Connecting a Coffee Maker
-The following image shows how to connect the Rapsberry Pi with an JURA E6 coffee maker.
+The following image shows how to connect the Raspberry Pi with an JURA E6 coffee maker.
 ![Pinout_Raspberry_Pi](https://user-images.githubusercontent.com/11741404/120469237-631e9900-c3a2-11eb-9f2e-731905ed8138.png)
 Since the Raspberry Pi can only handle 3.3V UART signals, we need a "Logic Level Shifter" in between the coffee maker and the Raspberry Pi.
-
