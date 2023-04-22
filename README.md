@@ -40,6 +40,8 @@ For the UI we use the [gtk-ui](https://github.com/Jutta-Proto/gtk-ui). Head over
 Here we have a look at what needs to be done when setting up a up to date copy of [Raspberry Pi OS](https://www.raspberrypi.org/software/) to work with this project.
 
 #### Installing Clang
+**⚠This is not requied any more for recent releases of Raspberry Pi OS.⚠**
+
 Since the out of the box available C++ compilers for the Raspberry Pi a bit to old and therefore unable to compile C++20 code, we are installing our own, up to date compiler. We decided to use [Clang](https://clang.llvm.org/) instead of [gcc](https://gcc.gnu.org/), since it's easier to set up on a Raspberry Pi. 
 ```bash
 sudo apt remove -y gcc clang # Remove all old compilers
